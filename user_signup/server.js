@@ -7,12 +7,13 @@ import MongoStore from 'connect-mongo'
 
 import router from './routes/web.js'
 
+import {} from 'dotenv/config'
+
 const app = express()
 
 app.use(bodyParser.urlencoded({extended:true}))
 
-
-const uri = "mongodb+srv://test123:Conestoga@cestar-node.wzsxe.mongodb.net/Leons_users?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 
 const session_store = MongoStore.create({
     mongoUrl : uri ,
